@@ -17,16 +17,18 @@ function Form( {addTask}){
     }
 
    return (
-    <form onSubmit = {handleSubmit}>
-        <input 
+    <div className = "form-container"> 
+        <form onSubmit = {handleSubmit}>
+            <input 
         type = "text" 
         value = {input}
         placeholder = "Enter a task"
         onChange = {handleChange}
-        
-        />
-        <button type = "submit"> Add Task </button>
-    </form>
+            />
+            <button type = "submit"> Add Task </button>
+        </form>
+    </div>
+    
    );
 }
 
