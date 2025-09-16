@@ -44,6 +44,7 @@ function Form({ onAddTask, onCancel }) {
         value={priority}
         onChange={(e) => setPriority(e.target.value)}
       >
+        <option value=""> -- Select Priority -- </option>
         <option value="low"> Low </option>
         <option value="moderate"> Moderate</option>
         <option value="high"> High </option>
@@ -52,9 +53,10 @@ function Form({ onAddTask, onCancel }) {
       <label htmlFor="deadline"> Deadline</label>
       <input
         id="deadline"
-        type="date"
+        type="time"
         value={deadline}
         onChange={(e) => setDeadline(e.target.value)}
+        onClick={(e) => e.target.showPicker && e.target.showPicker()}
       ></input>
       <button type="submit"> Add Task </button>
       <button type="button" onClick={onCancel}>

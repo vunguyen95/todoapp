@@ -1,0 +1,47 @@
+.todo-container {
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  margin: 5px;
+  width: 700px;
+  align-items: center;
+}
+
+.todo-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid #ccc;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+  gap: 10px;
+  width: 500px;
+}
+
+.todo-textbox {
+  display: flex;
+  flex-direction: column;
+}
+.todo-detail-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.todo-detail-box button {
+  padding: 8px;
+  background: transparent;
+  border: none;
+  cursor: default;
+}
+
+.icon {
+  cursor: pointer;
+  height: 20px;
+  width: 20px;
+  transition: transform 0.3s ease-in-out;
+}
+.iconOpen {
+  transform: rotate(180deg);
+}

@@ -14,6 +14,13 @@ function App() {
   const handleAdd = () => {
     setIsAdding(!isAdding);
   };
+  const handleToggle = (taskID) => {
+    setTasks(
+      tasks.map((task) =>
+        task.id === taskID ? { ...task, isComplete: !task.isComplete } : task
+      )
+    );
+  };
   return (
     <>
       <h1> What do you want to do today?</h1>
@@ -22,7 +29,7 @@ function App() {
       {isAdding ? <Form onAddTask={addTask} onCancel={handleAdd} /> : null}
 
       {console.log(tasks)}
-      <TodoList tasks={tasks} />
+      <TodoList tasks={tasks} onToggleTask={handleToggle} />
     </>
   );
 }

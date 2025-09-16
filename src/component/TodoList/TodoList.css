@@ -5,13 +5,5 @@
   align-self: center;
   margin: 20px auto;
   width: 500px;
-}
-
-.todo-item {
-  display: flex;
-  justify-content: space-between;
   align-items: center;
-  border: 2px solid #ccc;
-  padding-left: 10px;
-  border-radius: 10px;
 }
