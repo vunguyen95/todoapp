@@ -21,3 +21,7 @@
 ### limit character?
 
 ### truncate?
+
+### uselocalStorage
+
+### add a button to clear all task.
