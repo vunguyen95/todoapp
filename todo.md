@@ -12,7 +12,7 @@
 
 ## expand the todo item
 
-## when expand, also show time remaining
+## when expand, also show time remaining, and animation
 
 ## implement the edit and delete button
 

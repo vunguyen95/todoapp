@@ -5,8 +5,13 @@
   margin: 5px;
   width: 700px;
   align-items: center;
+  transition: all 0.3s ease-in-out;
+  opacity: 1;
 }
 
+.todo-container.slide-out {
+  transform: scale(0.3) translateX(-100%) translateY(20px);
+}
 .todo-card {
   display: flex;
   justify-content: space-between;
