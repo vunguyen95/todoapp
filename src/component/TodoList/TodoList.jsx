@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import "./TodoList.css";
 import TodoItem from "../TodoItem/TodoItem";
-function TodoList({ tasks, onToggleTask, onDeleteTask }) {
+function TodoList({ tasks, onToggleTask, onDeleteTask, onEditTask }) {
   return (
     <div className="todo-list">
       {tasks.length > 0 ? (
@@ -11,6 +11,7 @@ function TodoList({ tasks, onToggleTask, onDeleteTask }) {
             task={task}
             onToggleTask={onToggleTask}
             onDeleteTask={onDeleteTask}
+            onEditTask={onEditTask}
           />
         ))
       ) : (

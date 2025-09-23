@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./TodoItem.css";
 import { FiEdit2, FiTrash2, FiCheck, FiX } from "react-icons/fi";
 
 const maxLength = 20;
-function TodoItem({ task, onToggleTask, onDeleteTask }) {
+function TodoItem({ task, onToggleTask, onDeleteTask, onEditTask }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
 
@@ -33,32 +33,40 @@ function TodoItem({ task, onToggleTask, onDeleteTask }) {
         <div className="todo-card-header">
           <div className="todo-textbox">{truncateText(task.text)}</div>
           <div className="todo-detail-box">
-            <button className={`priority-${task.priority}`}>{task.priority}</button>
+            <button className={`priority-${task.priority}`}>
+              {task.priority}
+            </button>
             <button>{task.deadline}</button>
             <img
-            className={`icon ${isOpen ? "iconOpen" : " "}`}
-            title="Expand Task Details"
-            onClick={toggleOpen}
-            src="../../public/icon.svg"
-          ></img>
+              className={`icon ${isOpen ? "iconOpen" : " "}`}
+              title="Expand Task Details"
+              onClick={toggleOpen}
+              src="../../public/icon.svg"
+            ></img>
           </div>
         </div>
-        {isOpen && <div className={`todo-expand`}>
-          <h2>{task.text}</h2>
-          <div className="todo-description-box">{task.description}</div>
-      </div>}
+        {isOpen && (
+          <div className={`todo-expand`}>
+            <h2>{task.text}</h2>
+            <div className="todo-description-box">{task.description}</div>
+          </div>
+        )}
       </div>
-        
-        
 
       <button
         onClick={toggleTask}
-        className={`toggle-button-${task.isComplete ? "complete" : "incomplete"}`}
+        className={`toggle-button-${
+          task.isComplete ? "complete" : "incomplete"
+        }`}
         title="Toggle Complete Status"
       >
         {task.isComplete ? <FiCheck /> : <FiX />}
       </button>
-      <button className="edit-button" title="Edit Task">
+      <button
+        className="edit-button"
+        title="Edit Task"
+        onClick={() => onEditTask(task)}
+      >
         <FiEdit2 />
       </button>
       <button

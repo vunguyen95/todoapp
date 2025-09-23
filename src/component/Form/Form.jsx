@@ -1,12 +1,21 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import "./Form.css";
 
 /* In order to extract the submitted task, we need to pass down a function from App to update */
-function Form({ onAddTask, onCancel }) {
+function Form({ onAddTask, onCancel, isEditing = false, initialTask = {} }) {
   const [taskName, setTaskName] = useState("");
   const [description, setDescription] = useState("");
   const [priority, setPriority] = useState("");
   const [deadline, setDeadline] = useState("");
+
+  useEffect(() => {
+    if (isEditing && initialTask) {
+      setTaskName(initialTask.text);
+      setDescription(initialTask.description);
+      setPriority(initialTask.priority);
+      setDeadline(initialTask.deadline);
+    }
+  }, [isEditing, initialTask]);
 
   const handleSubmit = (e) => {
     e.preventDefault(); // Prevent reloading.
@@ -18,6 +27,9 @@ function Form({ onAddTask, onCancel }) {
       deadline: deadline,
       isComplete: false,
     };
+    if (isEditing) {
+      newTask.id = initialTask.id;
+    }
     onAddTask(newTask);
     onCancel();
   };
@@ -58,10 +70,9 @@ function Form({ onAddTask, onCancel }) {
         onChange={(e) => setDeadline(e.target.value)}
         onClick={(e) => e.target.showPicker && e.target.showPicker()}
       ></input>
-      <button type="submit"> Add Task </button>
+      <button type="submit"> {isEditing ? "Update Task" : "Add Task"} </button>
       <button type="button" onClick={onCancel}>
-        {" "}
-        Cancel Task{" "}
+        Cancel
       </button>
     </form>
   );
