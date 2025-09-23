@@ -31,15 +31,15 @@
   justify-content: space-between;
   width: 100%;
 }
-.todo-expand{
-  display:flex;
+.todo-expand {
+  display: flex;
   flex-direction: column;
   align-items: start;
   animation: slideDown 0.3s ease-in-out;
   width: 100%;
 }
 
-.todo-expand.slide-up{
+.todo-expand.slide-up {
   animation: slideUp 0.3s ease-in-out;
 }
 
@@ -50,14 +50,13 @@
   overflow-wrap: break-word;
 }
 
-.todo-description-box{
+.todo-description-box {
   word-wrap: break-word;
   word-break: break-word;
   overflow-wrap: break-word;
   width: 100%;
   line-height: 1.5;
   text-align: left;
-
 }
 @keyframes slideDown {
   from {
@@ -89,35 +88,44 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  height: 100%;
 }
 
 .todo-detail-box button {
-  padding: 8px;
+  padding: 10px;
   background: transparent;
   border: none;
   cursor: default;
+  outline: none;
 }
-.priority-urgent{
-  color: #ee0c1f
+.priority-urgent {
+  color: #ee0c1f;
 }
-.priority-high{
-  color: #ffa502
+.priority-high {
+  color: #ffa502;
 }
-.priority-moderate{
-  color: #05fa2e
+.priority-moderate {
+  color: #05fa2e;
 }
-.priority-low{
-  color: #0752f5
+.priority-low {
+  color: #0752f5;
 }
 
 .icon {
   cursor: pointer;
-  height: 20px;
-  width: 20px;
+  height: 100%;
+  width: 34px;
   transition: transform 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .iconOpen {
   transform: rotate(180deg);
+}
+.icon svg {
+  height: 100%;
+  width: 100%;
 }
 
 .toggle-button-complete {

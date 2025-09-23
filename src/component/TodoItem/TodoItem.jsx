@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./TodoItem.css";
-import { FiEdit2, FiTrash2, FiCheck, FiX } from "react-icons/fi";
+import { FiEdit2, FiTrash2, FiCheck, FiX, FiChevronDown } from "react-icons/fi";
 
 const maxLength = 20;
 function TodoItem({ task, onToggleTask, onDeleteTask, onEditTask }) {
@@ -37,12 +37,13 @@ function TodoItem({ task, onToggleTask, onDeleteTask, onEditTask }) {
               {task.priority}
             </button>
             <button>{task.deadline}</button>
-            <img
+            <button
               className={`icon ${isOpen ? "iconOpen" : " "}`}
               title="Expand Task Details"
               onClick={toggleOpen}
-              src="../../public/icon.svg"
-            ></img>
+            >
+              <FiChevronDown />
+            </button>
           </div>
         </div>
         {isOpen && (
