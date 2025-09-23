@@ -14,7 +14,7 @@
 }
 .todo-card {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
   border: 2px solid #ccc;
   padding-left: 10px;
@@ -22,6 +22,63 @@
   border-radius: 10px;
   gap: 10px;
   width: 500px;
+}
+
+.todo-card-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.todo-expand{
+  display:flex;
+  flex-direction: column;
+  align-items: start;
+  animation: slideDown 0.3s ease-in-out;
+  width: 100%;
+}
+
+.todo-expand.slide-up{
+  animation: slideUp 0.3s ease-in-out;
+}
+
+.todo-expand h2 {
+  text-align: left;
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.todo-description-box{
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  width: 100%;
+  line-height: 1.5;
+  text-align: left;
+
+}
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
 }
 
 .todo-textbox {
@@ -40,6 +97,18 @@
   border: none;
   cursor: default;
 }
+.priority-urgent{
+  color: #ee0c1f
+}
+.priority-high{
+  color: #ffa502
+}
+.priority-moderate{
+  color: #05fa2e
+}
+.priority-low{
+  color: #0752f5
+}
 
 .icon {
   cursor: pointer;
@@ -49,4 +118,13 @@
 }
 .iconOpen {
   transform: rotate(180deg);
+}
+
+.toggle-button-complete {
+  background-color: #4caf50;
+  transition: background-color 0.3s ease-in-out;
+}
+.toggle-button-incomplete {
+  background-color: #f44336;
+  transition: background-color 0.3s ease-in-out;
 }

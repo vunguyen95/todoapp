@@ -30,22 +30,30 @@ function TodoItem({ task, onToggleTask, onDeleteTask }) {
   return (
     <div className={`todo-container ${isDeleting ? "slide-out" : ""}`}>
       <div className="todo-card">
-        <div className="todo-textbox">{truncateText(task.text)}</div>
-        <div className="todo-detail-box">
-          <button>{task.priority}</button>
-          <button>{task.deadline}</button>
-          <img
+        <div className="todo-card-header">
+          <div className="todo-textbox">{truncateText(task.text)}</div>
+          <div className="todo-detail-box">
+            <button className={`priority-${task.priority}`}>{task.priority}</button>
+            <button>{task.deadline}</button>
+            <img
             className={`icon ${isOpen ? "iconOpen" : " "}`}
             title="Expand Task Details"
             onClick={toggleOpen}
             src="../../public/icon.svg"
           ></img>
+          </div>
         </div>
+        {isOpen && <div className={`todo-expand`}>
+          <h2>{task.text}</h2>
+          <div className="todo-description-box">{task.description}</div>
+      </div>}
       </div>
+        
+        
 
       <button
         onClick={toggleTask}
-        className="toggle-button"
+        className={`toggle-button-${task.isComplete ? "complete" : "incomplete"}`}
         title="Toggle Complete Status"
       >
         {task.isComplete ? <FiCheck /> : <FiX />}
@@ -55,7 +63,7 @@ function TodoItem({ task, onToggleTask, onDeleteTask }) {
       </button>
       <button
         className="delete-button"
-        title="Delete Task onClick={deleteTask} "
+        title="Delete Task"
         onClick={deleteTask}
       >
         <FiTrash2 />
