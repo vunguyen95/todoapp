@@ -4,12 +4,8 @@
 
 ## maybe move the completed task to the end?
 
-## when expand, also show time remaining, and animation
-
-## implement the edit and delete button
+## when expand, also show time remaining
 
 ### uselocalStorage
-
-### add a button to clear all task.
 
 ### using free AI api for suggestion.

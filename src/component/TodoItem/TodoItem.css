@@ -10,7 +10,7 @@
 }
 
 .todo-container.slide-out {
-  transform: scale(0.3) translateX(-100%) translateY(20px);
+  transform: scale(1) translateX(-100vw) translateY(20px);
 }
 .todo-card {
   display: flex;
