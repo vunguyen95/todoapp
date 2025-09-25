@@ -70,10 +70,10 @@ function Form({ onAddTask, onCancel, isEditing = false, initialTask = {} }) {
         onChange={(e) => setDeadline(e.target.value)}
         onClick={(e) => e.target.showPicker && e.target.showPicker()}
       ></input>
-      <button type="submit"> {isEditing ? "Update Task" : "Add Task"} </button>
       <button type="button" onClick={onCancel}>
         Cancel
       </button>
+      <button type="submit"> {isEditing ? "Update Task" : "Add Task"} </button>
     </form>
   );
 }
